@@ -77,7 +77,7 @@ import argparse
 import errno
 import os
 import sys
-import time
+import time, datetime
 import io
 
 # The following exits cleanly on Ctrl-C or EPIPE
@@ -658,6 +658,7 @@ def main():
     # We must close explicitly, so that any EPIPE exception
     # is handled by our excepthook, rather than the default
     # one which is reenabled after this script finishes.
+    sys.stdout.write(f'{datetime.datetime.now()} Ends\n\n\n')
     sys.stdout.close()
 
     ram_accuracy, swap_accuracy = val_accuracy( show_swap )
